@@ -28,9 +28,9 @@ void shift_task(void *data)
 		printf("Start counting");
 		for (int nr = 0; nr < 256; nr++)
 		{
-			tls_gpio_write(WM_IO_PB_22, 1);
+			tls_gpio_write(PIN_LATCH, 1);
 			shift_out(PIN_DATA, PIN_CLOCK, LSBFIRST, nr);
-			tls_gpio_write(WM_IO_PB_22, 0);
+			tls_gpio_write(PIN_LATCH, 0);
 			tls_os_time_delay(HZ / 2);
 		}
 	}
