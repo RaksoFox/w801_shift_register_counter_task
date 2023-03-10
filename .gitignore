@@ -1,0 +1,58 @@
+# Prerequisites
+*.d
+
+# Object files
+*.o
+*.ko
+*.obj
+*.elf
+
+# Linker output
+*.ilk
+*.map
+*.exp
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Libraries
+*.lib
+*.la
+*.lo
+
+# Shared objects (inc. Windows DLLs)
+*.dll
+*.so
+*.so.*
+*.dylib
+
+# Executables
+*.out
+*.app
+*.i*86
+*.x86_64
+*.hex
+
+# Debug files
+*.dSYM/
+*.su
+*.idb
+*.pdb
+
+# Kernel Module Compile Results
+*.mod*
+*.cmd
+
+.vscode/*
+tools/W806/wm_tool
+tools/W806/wm_getver
+tools/W806/wm_getver.exe
+tools/W806/.config
+tools/W806/.config.old
+bin/*
+tools/upload.sh
+lib/W806/libappuser.a
+lib/W806/libdrivers.a
+lib/W806/libwmarch.a
+lib/W806/libwmcomponent.a
