@@ -11,22 +11,26 @@
 static OS_STK ShiftTaskStk[SHIFT_TASK_SIZE];
 #define SHIFT_TASK_PRIO 32
 
+#define PIN_LATCH WM_IO_PB_22
+#define PIN_CLOCK WM_IO_PB_21
+#define PIN_DATA WM_IO_PB_23
+
 void shift_task(void *data)
 {
 	printf("Pin configuration\n");
 
-	tls_gpio_cfg(WM_IO_PB_18, WM_GPIO_DIR_OUTPUT, WM_GPIO_ATTR_FLOATING);
-	tls_gpio_cfg(WM_IO_PB_25, WM_GPIO_DIR_OUTPUT, WM_GPIO_ATTR_FLOATING);
-	tls_gpio_cfg(WM_IO_PB_26, WM_GPIO_DIR_OUTPUT, WM_GPIO_ATTR_FLOATING);
+	tls_gpio_cfg(PIN_LATCH, WM_GPIO_DIR_OUTPUT, WM_GPIO_ATTR_FLOATING);
+	tls_gpio_cfg(PIN_CLOCK, WM_GPIO_DIR_OUTPUT, WM_GPIO_ATTR_FLOATING);
+	tls_gpio_cfg(PIN_DATA, WM_GPIO_DIR_OUTPUT, WM_GPIO_ATTR_FLOATING);
 
 	for (;;)
 	{
 		printf("Start counting");
 		for (int nr = 0; nr < 256; nr++)
 		{
-			tls_gpio_write(WM_IO_PB_26, 1);
-			shift_out(WM_IO_PB_18, WM_IO_PB_25, LSBFIRST, nr);
-			tls_gpio_write(WM_IO_PB_26, 0);
+			tls_gpio_write(WM_IO_PB_22, 1);
+			shift_out(PIN_DATA, PIN_CLOCK, LSBFIRST, nr);
+			tls_gpio_write(WM_IO_PB_22, 0);
 			tls_os_time_delay(HZ / 2);
 		}
 	}
