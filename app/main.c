@@ -25,7 +25,7 @@ void shift_task(void *data)
 
 	for (;;)
 	{
-		printf("Start counting");
+		printf("Start counting\n");
 		for (int nr = 0; nr < 256; nr++)
 		{
 			tls_gpio_write(PIN_LATCH, 1);

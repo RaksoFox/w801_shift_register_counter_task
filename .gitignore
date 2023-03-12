@@ -45,14 +45,10 @@
 *.cmd
 
 .vscode/*
-tools/W800/wm_tool
-tools/W800/wm_getver
-tools/W800/wm_getver.exe
+# tools/W800/wm_tool
+# tools/W800/wm_getver
+# tools/W800/wm_getver.exe
 tools/W800/.config
 tools/W800/.config.old
 bin/*
 tools/upload.sh
-lib/W800/libappuser.a
-lib/W800/libdrivers.a
-lib/W800/libwmarch.a
-lib/W800/libwmcomponent.a
